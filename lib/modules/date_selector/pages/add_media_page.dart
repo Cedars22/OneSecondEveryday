@@ -37,10 +37,8 @@ class AddMedia extends StatelessWidget {
                       // );
                       FilePickerResult? result =
                           await FilePicker.platform.pickFiles();
-
                       if (result != null) {
                         File file = File(result.files.single.path!);
-                        print(file);
                         showDialog(
                             context: context,
                             builder: (context) {
@@ -52,7 +50,7 @@ class AddMedia extends StatelessWidget {
                                     onPressed: () {
                                       Navigator.pop(context);
                                     },
-                                    child: Text('OK'),
+                                    child: const Text('OK'),
                                   ),
                                 ],
                               );

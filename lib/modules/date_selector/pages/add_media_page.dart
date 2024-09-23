@@ -31,33 +31,10 @@ class AddMedia extends StatelessWidget {
                 children: [
                   InkWell(
                     onTap: () async {
-                      // context.push(
-                      //   DateSelectorRouter.selectMediaPage,
-                      //   extra: date,
-                      // );
-                      FilePickerResult? result =
-                          await FilePicker.platform.pickFiles();
-                      if (result != null) {
-                        File file = File(result.files.single.path!);
-                        showDialog(
-                            context: context,
-                            builder: (context) {
-                              return AlertDialog(
-                                title: Text('File Selected'),
-                                content: Text(file.path),
-                                actions: [
-                                  TextButton(
-                                    onPressed: () {
-                                      Navigator.pop(context);
-                                    },
-                                    child: const Text('OK'),
-                                  ),
-                                ],
-                              );
-                            });
-                      } else {
-                        // User canceled the picker
-                      }
+                      context.push(
+                        DateSelectorRouter.listMediaPage,
+                        extra: date,
+                      );
                     },
                     child: const Card(
                       margin: EdgeInsets.all(10),

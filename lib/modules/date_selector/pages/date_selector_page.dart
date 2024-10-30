@@ -14,12 +14,13 @@ class DateSelectorPage extends ConsumerWidget {
     final tomorrow = now.add(const Duration(days: 1));
     final initialDate = DateTime(1900);
     bool hasMedia = false;
-    final scrollController = ref.watch(scrollControllerProviderProvider);
+    // final scrollController = ref.watch(scrollControllerProviderProvider);
+    final scrollController = ScrollController();
 
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      ref
-          .read(scrollControllerProviderProvider)
-          .jumpTo(scrollController.position.maxScrollExtent);
+      // ref
+      //     .read(scrollControllerProviderProvider)
+      scrollController.jumpTo(scrollController.position.maxScrollExtent);
     });
 
     return Scaffold(
@@ -108,7 +109,8 @@ class DateSelectorPage extends ConsumerWidget {
         children: [
           ElevatedButton(
             onPressed: () {
-              Navigator.of(context).pushNamed('/');
+              // TODO: Implementar la navegación a la página de mash
+              print('nati');
             },
             child: const Text('Mash'),
           ),
